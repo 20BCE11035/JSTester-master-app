@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSTester</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: seashell;
+        }
+        textarea {
+            width: 100%;
+            height: 500px;
+            font-size: 20px;
+        }
+        button {
+            background-color: hotpink;
+            color: white;
+            border: 2px solid deeppink;
+            border-radius: 10px;
+        }
+        img {
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <textarea id="inputField" placeholder="Copy paste your doctest-code here."></textarea>
+        </div>
+        <div class="col-sm-12">
+            <textarea id="outputField" placeholder="The JS-Test code will come here."></textarea>
+        </div>
+        <div class="text-center">
+            <button onclick="verwerk()">GO</button>
+            <button onclick="reset()">CLEAR</button>
+            <button onclick="mini()">MINIFY</button>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <h1>JS-Tester</h1>
+    <p>Deze - hoogstwaarschijnlijk met buggevulde - webapplicatie maakt het mogelijk om tijdens het werken met javascript ook tests te kunnen runnen. Dien in bovenstaande textarea je doctest-like tests in. En plak het resultaat in je javascript script. Wij doen de rest voor jou.</p>
+    <p>Wil je alles op 1 lijn - ten koste van de leesbaarheid? Klik dan op de knop 'MINIFY'.</p>
+    <img src="afbeeldingen/functies.png">
+    <p>2 simpele javascript functies.</p>
+    <img src="afbeeldingen/doctest.png">
+    <p>De doctest tests.</p>
+    <img src="afbeeldingen/JSTest.png">
+    <p>De code gegenereerd door deze webaplicatie tests.</p>
+    <img src="afbeeldingen/resultaat.png">
+    <p>Het resultaat na het runnen van de tests.</p>
+</div>
+<div class="container">
+    <h3>Voetnoot</h3>
+    <p>De huidige versie ondersteunt het opgooien en controlen van Errors, het uitvoeren van eenvoudige functies en het vergelijken met het gewenste resultaat.</p>
+    <p>&copy; Manu De Buck</p>
+    <p id="currentVersion"></p>
+    <p>Find on github: <a href="https://github.com/ManuDeBuck/JSTester">GitHub</a></p>
+</div>
+<script>
+    fetch('version.txt').then(response => response.text()).then(text => {$("#currentVersion").text("Version: " + text);});
+</script>
+<script src="script.js"></script>
+</body>
+</html>
